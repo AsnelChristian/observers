@@ -15059,6 +15059,7 @@ var signup = /*#__PURE__*/function () {
 exports.signup = signup;
 },{"axios":"../../node_modules/axios/index.js","./alert":"alert.js","./loader":"loader.js"}],"apiKeys.js":[function(require,module,exports) {
 exports.mapboxToken = 'pk.eyJ1IjoiYXNuZWxjaHJpc3RpYW4iLCJhIjoiY2thd2Z0aXJ1MDdteTJ0bXU5NDU2bHZ4MCJ9.kChV328HGtNtda8XQQc4tA';
+exports.dataQuestToken = 'qGF0GOYsNSQ0PFJAdJBIhVglHRYkdLy1';
 },{}],"mapbox.js":[function(require,module,exports) {
 "use strict";
 
