@@ -145,6 +145,7 @@
   flex-direction: column;
   position: relative;
   border-bottom-left-radius: 2rem;
+  border-top-left-radius: 2rem;
 
   &--authored {
     background-color: rgba($color-secondary, .1);

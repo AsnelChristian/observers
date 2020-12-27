@@ -15116,7 +15116,14 @@ var displayMap = function displayMap(mapObj, data) {
     });
     var marker = L.marker(d.location.coordinates.reverse(), {
       icon: markerIcon
-    }).bindPopup(getPopupHTML(d));
+    }).bindPopup(getPopupHTML(d)).on('click', function () {
+      var reportId = "report-".concat(d.location.coordinates.sort().map(function (e) {
+        return "".concat(e);
+      }).join('-').replace(/\./g, '-'));
+      var reportView = document.getElementById(reportId);
+      reportView.parentNode.parentNode.scrollTop = reportView.offsetTop;
+      reportView.style.animation = 'blinkBackground 6s';
+    });
     markers.addLayer(marker);
   });
   mapObj.addLayer(markers);
@@ -36446,7 +36453,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53778" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61835" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

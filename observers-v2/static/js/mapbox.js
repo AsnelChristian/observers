@@ -69,7 +69,20 @@ export const displayMap = (mapObj, data) => {
     const markerIcon = L.divIcon({ className: 'marker marker--default' });
     const marker = L.marker(d.location.coordinates.reverse(), {
       icon: markerIcon
-    }).bindPopup(getPopupHTML(d));
+    })
+      .bindPopup(getPopupHTML(d))
+      .on('click', function() {
+        const reportId = `report-${d.location.coordinates
+          .sort()
+          .map(e => {
+            return `${e}`;
+          })
+          .join('-')
+          .replace(/\./g, '-')}`;
+        const reportView = document.getElementById(reportId);
+        reportView.parentNode.parentNode.scrollTop = reportView.offsetTop;
+        reportView.style.animation = 'blinkBackground 6s';
+      });
     markers.addLayer(marker);
   });
 

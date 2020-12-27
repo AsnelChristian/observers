@@ -91,3 +91,18 @@
     transform: translateX(0);
   }
 }
+
+@keyframes blinkBackground {
+  0% {
+    background-color: $color-white;
+  }
+  8% {
+    background-color: rgba($color-secondary, .2);
+  }
+  95% {
+    background-color: rgba($color-secondary, .15); ;
+  }
+  100% {
+    background-color: $color-white;
+  }
+}

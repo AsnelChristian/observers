@@ -206,11 +206,19 @@ block content
             - let userVotes, likes = '', dislikes = ''
             - let isAuthor = user && report.author && user.id.toString() === report.author.toString()
             -
+              let reportId = `report-${report.location.coordinates
+                .sort()
+                .map(e => {
+                      return `${e}`;
+                    })
+                .join('-')
+                .replace(/\./g, '-')}`;
+            -
               if (user)
                 userVotes = report.votes.filter(v => v.author.toString() === user._id.toString())
               if (userVotes && userVotes.length > 0 && (userVotes[0].value === 1)) likes = 'report__feel-btn--active'
               if (userVotes && userVotes.length > 0 && (userVotes[0].value === -1)) dislikes = 'report__feel-btn--active'
-            .report(class=`${isAuthor && 'report--authored'}`)
+            .report(class=`${isAuthor && 'report--authored'}` id=reportId)
               .report__info.info-line
                 span.info-line__item.info-line__item--1
                   a.link-info.link-info--small(href='#')= report.createdAt.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})
