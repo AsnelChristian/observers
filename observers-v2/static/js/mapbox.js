@@ -81,6 +81,7 @@ export const displayMap = (mapObj, data) => {
           .replace(/\./g, '-')}`;
         const reportView = document.getElementById(reportId);
         reportView.parentNode.parentNode.scrollTop = reportView.offsetTop;
+        reportView.style.animation = 'none';
         reportView.style.animation = 'blinkBackground 6s';
       });
     markers.addLayer(marker);
